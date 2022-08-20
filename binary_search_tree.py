@@ -91,28 +91,9 @@ class BST(BaseNode):
         pass
 
     def show(self):
-        # First row
-        row = [self]
-
-        def distance(_i):
-            return "".join([self.unit_dist for _ in range(self.depth - _i ** 2)])
-
-        def line(_i):
-            return f"{distance(_i)}{''.join([self.unit_dist for _ in range(round(self.depth / (_i + 1)))]).join([str(_each) for _each in row])}{distance(_i)} "
-
-        print(line(1))
-
-        for i in range(1, self.depth):
-            # Any other row
-            _buff = []
-            for node in row:
-                _buff.extend([node.left_child, node.right_child])
-            row = _buff
-            print(line(i))
-            row = list(map(lambda x: x if x is not None else Node(5, self), row))  # TODO: delete this
+        pass
 
 
 if __name__ == '__main__':
     bst = BST([random.randint(13, 15) for i in range(150)])
     a = bst.search(13)  # BRUH why bruuuuuuuuuuuuuuuh
-    pass
